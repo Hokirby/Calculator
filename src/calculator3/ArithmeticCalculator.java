@@ -7,7 +7,7 @@ import java.util.Optional;
 public class ArithmeticCalculator {
     double num1;
     double num2;
-    private LinkedList<Number> results = new LinkedList<>();
+    private LinkedList<Double> results = new LinkedList<>();
 
     public void setNum1(double num1) {
         this.num1 = num1;
@@ -25,7 +25,7 @@ public class ArithmeticCalculator {
         return num2;
     }
 
-    public LinkedList<Number> getResults() {
+    public LinkedList<Double> getResults() {
         return this.results;
     }
 
@@ -33,18 +33,22 @@ public class ArithmeticCalculator {
         this.results.poll();
     }
 
-    public void addResult(Number result) {
+    public void addResult(Double result) {
         this.results.add(result);
     }
 
-    public List<Number> getBiggerList(Double num3) {
+    public List<Double> getBiggerList(Double num3) {
         return this.results.stream()
-                .filter(num -> num3 < num.doubleValue())
+                .filter(num -> num3 < num)
                 .toList();
     }
 
-    public <T extends Number> Optional<T> calculate(T num1, T num2, OperatorType operator) {
-        return Optional.of(operator.calculate(num1, num2));
+    public <T extends Number> Optional<Double> calculate(T num1, T num2, OperatorType operator) {
+        try {
+            return Optional.of(operator.calculate(num1, num2));
+        } catch (ZeroDivisionException e) {
+            return Optional.empty();
+        }
     }
 
 }

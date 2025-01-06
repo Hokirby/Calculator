@@ -37,7 +37,7 @@ public class App {
             System.out.println("현재 저장된 결과값: " + calc.getResults());
             System.out.print("종료를 원하시면 'exit' 를, 추가 계산을 원하시면 다른 키를 입력하세요 ");
             if (sc.next().equalsIgnoreCase("exit")) {
-                System.exit(1);
+                System.exit(0);
             }
         }
     }
