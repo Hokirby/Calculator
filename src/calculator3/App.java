@@ -34,11 +34,39 @@ public class App {
                 System.out.println("결과: " + result.get());
                 calc.addResult(result.get());
             }
-            System.out.println("연산 결과값: " + calc.getResults().toString());
-            System.out.println("입력값보다 큰 연산결과값을 조회합니다 기준값을 입력하세요: ");
-            Double num3 = sc.nextDouble();
-            List<Double> biggerList = calc.getBiggerList(num3);
-            System.out.println(biggerList.toString());
+            while (true) {
+                System.out.println("연산 결과값: " + calc.getResults().toString());
+                System.out.println("1. 연산결과 절댓값으로 변경, 2. 연산결과 반올림값으로 변경 3. 입력값보다 큰 연산결과값 조회 4. 결과값 조회 종료");
+                int menu = sc.nextInt();
+                if (menu == 4) {
+                    break;
+                }
+                switch (menu) {
+                    case 1:
+                        System.out.print("절댓값으로 변경할 결과값의 인덱스를 입력하세요: ");
+                        int absIndex = sc.nextInt();
+                        calc.replaceResult(absIndex, calc.absolute(calc.getResult(absIndex)));
+                        break;
+                    case 2:
+                        System.out.print("반올림값으로 변경할 결과값의 인덱스를 입력하세요: ");
+                        int roundIndex = sc.nextInt();
+                        if (calc.round(calc.getResult(roundIndex)).isEmpty()) {
+                            System.out.println("Invalid Result");
+                            break;
+                        }
+                        calc.replaceResult(roundIndex, calc.round(calc.getResult(roundIndex)).get());
+                        break;
+                    case 3:
+                        System.out.println("입력값보다 큰 연산결과값을 조회합니다 기준값을 입력하세요: ");
+                        Double num3 = sc.nextDouble();
+                        List<Double> biggerList = calc.getBiggerList(num3);
+                        System.out.println(biggerList.toString());
+                        break;
+                    default:
+                        System.out.println("Invalid Input");
+                        break;
+                }
+            }
             System.out.print("종료를 원하시면 'exit' 를, 추가 계산을 원하시면 다른 키를 입력하세요 ");
             if (sc.next().equalsIgnoreCase("exit")) {
                 System.exit(0);
