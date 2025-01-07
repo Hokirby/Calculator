@@ -33,6 +33,13 @@ public enum OperatorType {
             }
             return num1.doubleValue() / num2.doubleValue();
         }
+    },
+
+    POWER("^") {
+        @Override
+        public <T extends Number> Double calculate(T num1, T num2) {
+            return Math.pow(num1.doubleValue(), num2.doubleValue());
+        }
     };
 
     private String symbol;

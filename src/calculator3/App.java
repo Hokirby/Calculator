@@ -20,7 +20,7 @@ public class App {
                 sc.nextLine();
                 continue;
             }
-            System.out.print("사칙연산 기호를 입력하세요: ");
+            System.out.print("사칙연산 기호를 입력하세요(+,-,*,/,^): ");
             String signInput = sc.next();
             Optional<OperatorType> operatorType = OperatorType.getOperator(signInput);
             if (operatorType.isEmpty()) {
