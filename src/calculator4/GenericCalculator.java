@@ -6,7 +6,10 @@ import java.util.List;
 import java.util.Optional;
 
 public class GenericCalculator {
-    private List<? extends ArithmeticCalculator> results = new ArrayList<>();
+    private List<ArithmeticCalculator> results = new ArrayList<>();
+
+    //immutable -> 불변성
+    //mutabale -> 변할 수 있음
 
     public boolean isDigit(String number) {
         return (number.chars().allMatch(Character::isDigit));

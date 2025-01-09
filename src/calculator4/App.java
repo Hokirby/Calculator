@@ -38,7 +38,7 @@ public class App {
                 System.out.println("Invalid Result");
             } else {
                 System.out.println("결과: " + result.get());
-                gc.addResult(result);
+                gc.addResult(result.get());
             }
             System.out.println("연산 결과값: " + gc.getResults().toString());
             System.out.print("종료를 원하시면 'exit' 를, 추가 계산을 원하시면 다른 키를 입력하세요 ");
