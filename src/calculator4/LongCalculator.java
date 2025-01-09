@@ -1,5 +1,7 @@
 package calculator4;
 
+import calculator3.ZeroDivisionException;
+
 public class LongCalculator implements ArithmeticCalculator<LongCalculator> {
     private final long number;
 
@@ -24,6 +26,9 @@ public class LongCalculator implements ArithmeticCalculator<LongCalculator> {
 
     @Override
     public LongCalculator divide(LongCalculator other) {
+        if (other.number == 0){
+            throw new ZeroDivisionException();
+        }
         return new LongCalculator(this.number / other.number);
     }
 

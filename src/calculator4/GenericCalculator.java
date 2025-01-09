@@ -1,13 +1,12 @@
 package calculator4;
 
-import calculator3.ZeroDivisionException;
-
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Optional;
 
 public class GenericCalculator {
-    ArrayList<ArithmeticCalculator> results = new ArrayList<>();
+    private List<? extends ArithmeticCalculator> results = new ArrayList<>();
 
     public boolean isDigit(String number) {
         return (number.chars().allMatch(Character::isDigit));
@@ -27,18 +26,15 @@ public class GenericCalculator {
 
     public <Calc extends ArithmeticCalculator<Calc>> Optional<Calc> calculate(Calc calc1, Calc calc2, OperatorType
             operator) {
-        try {
-            return Optional.of(operator.calculate(calc1, calc2));
-        } catch (ZeroDivisionException e) {
-            return Optional.empty();
-        }
+        return Optional.of(operator.calculate(calc1, calc2));
     }
 
-    public void addResult(ArithmeticCalculator result) {
+
+    public<T extends ArithmeticCalculator> void addResult(T result) {
         this.results.add(result);
     }
 
-    public ArrayList<ArithmeticCalculator> getResults() {
+    public List<? extends ArithmeticCalculator> getResults() {
         return results;
     }
 }

@@ -7,11 +7,6 @@ public enum OperatorType {
     PLUS("+"){
         @Override
         public <Calc extends ArithmeticCalculator<Calc>> Calc calculate(Calc calc1, Calc calc2) {
-            if (!(calc1 instanceof calc2.getClass())){
-                calc1 = new DoubleCalculator(Double.parseDouble(calc1.toString()));
-                Object.getClass()
-
-            }
             return calc1.add(calc2);
         }
     },
@@ -45,4 +40,5 @@ public enum OperatorType {
     }
 
     public abstract <Calc extends ArithmeticCalculator<Calc>> Calc calculate(Calc calc1, Calc calc2);
+    //static 으로 만들수 없음
 }

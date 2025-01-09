@@ -7,7 +7,7 @@ import java.util.Optional;
 public class ArithmeticCalculator {
     double num1;
     double num2;
-    private ArrayList<Double> results = new ArrayList<>();
+    private List<Double> results = new ArrayList<>();
 
     public void setNum1(double num1) {
         this.num1 = num1;
@@ -25,7 +25,7 @@ public class ArithmeticCalculator {
         return num2;
     }
 
-    public ArrayList<Double> getResults() {
+    public List<Double> getResults() {
         return this.results;
     }
 

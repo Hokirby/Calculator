@@ -1,5 +1,7 @@
 package calculator4;
 
+import calculator3.ZeroDivisionException;
+
 public class DoubleCalculator implements ArithmeticCalculator<DoubleCalculator> {
     private final double number;
 
@@ -24,6 +26,9 @@ public class DoubleCalculator implements ArithmeticCalculator<DoubleCalculator> 
 
     @Override
     public DoubleCalculator divide(DoubleCalculator other) {
+        if (other.number == 0){
+            throw new ZeroDivisionException();
+        }
         return new DoubleCalculator(this.number/ other.number);
     }
 
