@@ -22,7 +22,6 @@ public class Calculator {
             System.out.print("사칙연산 기호를 입력하세요: ");
             String sign = sc.next();
             Integer result = 0;
-            //boolean isResult = true;//줄일수있으면
             switch (sign) {
                 case "+":
                     result = num1 + num2;
