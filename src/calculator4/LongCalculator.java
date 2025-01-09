@@ -4,10 +4,21 @@ import calculator3.ZeroDivisionException;
 
 public class LongCalculator implements ArithmeticCalculator<LongCalculator> {
     private final long number;
+//    private long number;
 
     public LongCalculator(long number) {
         this.number = number;
     }
+
+//    public LongCalculator setNumber(long number){
+//        this.number = number;
+//        return this;
+//    }
+//
+//    @Override
+//    public LongCalculator add(LongCalculator other) {
+//        return this.setNumber(this.number + other.number);
+//    }
 
     @Override
     public LongCalculator add(LongCalculator other) {
