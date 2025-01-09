@@ -7,11 +7,7 @@ public enum OperatorType {
     PLUS("+"){
         @Override
         public <Calc extends ArithmeticCalculator<Calc>> Calc calculate(Calc calc1, Calc calc2) {
-            if (!(calc1 instanceof calc2.getClass())){
-                calc1 = new DoubleCalculator(Double.parseDouble(calc1.toString()));
-                Object.getClass()
-
-            }
+            //파라미터에 인자 넘기기 전 부터 타입 변경 후 보내줘야함
             return calc1.add(calc2);
         }
     },
