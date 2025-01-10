@@ -1,4 +1,4 @@
-package calculator4;
+package calculator4.Calculators;
 
 public interface ArithmeticCalculator<T> {
     T add(T other);

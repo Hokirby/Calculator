@@ -1,27 +1,32 @@
-package calculator4;
+package calculator4.Calculators;
 
 import calculator3.ZeroDivisionException;
 
 public class DoubleCalculator implements ArithmeticCalculator<DoubleCalculator> {
-    private final double number;
+    private double number;
 
-    public DoubleCalculator(double number){
+    public DoubleCalculator(double number) {
         this.number = number;
+    }
+
+    public DoubleCalculator setNumber(double number) {
+        this.number = number;
+        return this;
     }
 
     @Override
     public DoubleCalculator add(DoubleCalculator other) {
-        return new DoubleCalculator(this.number + other.number);
+        return this.setNumber(this.number + other.number);
     }
 
     @Override
     public DoubleCalculator subtract(DoubleCalculator other) {
-        return new DoubleCalculator(this.number - other.number);
+        return this.setNumber(this.number + other.number);
     }
 
     @Override
     public DoubleCalculator multiply(DoubleCalculator other) {
-        return new DoubleCalculator(this.number * other.number);
+        return this.setNumber(this.number + other.number);
     }
 
     @Override
@@ -29,11 +34,6 @@ public class DoubleCalculator implements ArithmeticCalculator<DoubleCalculator> 
         if (other.number == 0){
             throw new ZeroDivisionException();
         }
-        return new DoubleCalculator(this.number/ other.number);
-    }
-
-    @Override
-    public String toString() {
-        return String.valueOf(number);
+        return this.setNumber(this.number + other.number);
     }
 }

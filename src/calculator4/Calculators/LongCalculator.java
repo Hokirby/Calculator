@@ -1,38 +1,32 @@
-package calculator4;
+package calculator4.Calculators;
 
 import calculator3.ZeroDivisionException;
 
 public class LongCalculator implements ArithmeticCalculator<LongCalculator> {
-    private final long number;
-//    private long number;
+    private long number;
 
     public LongCalculator(long number) {
         this.number = number;
     }
 
-//    public LongCalculator setNumber(long number){
-//        this.number = number;
-//        return this;
-//    }
-//
-//    @Override
-//    public LongCalculator add(LongCalculator other) {
-//        return this.setNumber(this.number + other.number);
-//    }
+    public LongCalculator setNumber(long number){
+        this.number = number;
+        return this;
+    }
 
     @Override
     public LongCalculator add(LongCalculator other) {
-        return new LongCalculator(this.number + other.number);
+        return this.setNumber(this.number + other.number);
     }
 
     @Override
     public LongCalculator subtract(LongCalculator other) {
-        return new LongCalculator(this.number - other.number);
+        return this.setNumber(this.number + other.number);
     }
 
     @Override
     public LongCalculator multiply(LongCalculator other) {
-        return new LongCalculator(this.number * other.number);
+        return this.setNumber(this.number + other.number);
     }
 
     @Override
@@ -40,7 +34,7 @@ public class LongCalculator implements ArithmeticCalculator<LongCalculator> {
         if (other.number == 0){
             throw new ZeroDivisionException();
         }
-        return new LongCalculator(this.number / other.number);
+        return this.setNumber(this.number + other.number);
     }
 
     @Override
