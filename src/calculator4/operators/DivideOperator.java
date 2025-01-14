@@ -1,6 +1,6 @@
-package calculator4.Operators;
+package calculator4.operators;
 
-import calculator4.Exceptions.*;
+import calculator4.exceptions.*;
 
 public class DivideOperator<T extends Number> implements Operator<T> {
     @Override

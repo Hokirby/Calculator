@@ -1,6 +1,7 @@
 package calculator;
 
 import java.util.InputMismatchException;
+import java.util.Optional;
 import java.util.Scanner;
 
 public class Calculator {
@@ -21,33 +22,33 @@ public class Calculator {
             }
             System.out.print("사칙연산 기호를 입력하세요: ");
             String sign = sc.next();
-            Integer result = 0;
+            Optional<Integer> result;
             switch (sign) {
                 case "+":
-                    result = num1 + num2;
+                    result = Optional.of(num1 + num2);
                     break;
                 case "-":
-                    result = num1 - num2;
+                    result = Optional.of(num1 - num2);
                     break;
                 case "*":
-                    result = num1 * num2;
+                    result = Optional.of(num1 * num2);
                     break;
                 case "/":
                     if (num2 == 0) {
                         System.out.println("나눗셈 연산에서 분모(두번째 수)에 0이 입력될 수 없습니다.");
-                        result = null;
+                        result = Optional.empty();
                         break;
                     }
-                    result = num1 / num2;
+                    result = Optional.of(num1 / num2);
                     break;
                 default:
                     System.out.println("기호 정보가 잘못되었습니다.");
-                    result = null;
+                    result = Optional.empty();
             }
-            if (result == null) {
+            if (result.equals(Optional.empty())) {
                 System.out.println("결과값이 없습니다");
             } else {
-                System.out.println("결과: " + result);
+                System.out.println("결과: " + result.get());
             }
             System.out.print("종료를 원하시면 'exit' 를, 추가 계산을 원하시면 다른 키를 입력하세요 ");
             if (sc.next().equalsIgnoreCase("exit")) {

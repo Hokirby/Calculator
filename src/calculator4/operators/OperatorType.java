@@ -1,4 +1,4 @@
-package calculator4.Operators;
+package calculator4.operators;
 
 import java.util.Optional;
 import java.util.Arrays;

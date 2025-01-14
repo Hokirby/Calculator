@@ -1,6 +1,6 @@
-package calculator4.Calculators;
+package calculator4.calculators;
 
-import calculator3.ZeroDivisionException;
+import calculator4.exceptions.ZeroDivisionException;
 
 public class DoubleCalculator implements ArithmeticCalculator<DoubleCalculator> {
     private double number;

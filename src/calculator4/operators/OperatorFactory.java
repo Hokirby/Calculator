@@ -1,6 +1,6 @@
-package calculator4.Operators;
+package calculator4.operators;
 
-import calculator4.Exceptions.InvalidOperationException;
+import calculator4.exceptions.InvalidOperationException;
 
 public class OperatorFactory {
     public static <T extends Number> Operator<T> operate(OperatorType type) {

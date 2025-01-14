@@ -1,6 +1,6 @@
-package calculator4.Calculators;
+package calculator4.calculators;
 
-import calculator3.ZeroDivisionException;
+import calculator4.exceptions.ZeroDivisionException;
 
 public class LongCalculator implements ArithmeticCalculator<LongCalculator> {
     private long number;

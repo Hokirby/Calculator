@@ -1,10 +1,10 @@
 package calculator4;
 
-import calculator4.Calculators.GenericCalculator;
-import calculator4.Exceptions.InvalidOperationException;
-import calculator4.Exceptions.ZeroDivisionException;
-import calculator4.Operators.OperatorFactory;
-import calculator4.Operators.OperatorType;
+import calculator4.calculators.GenericCalculator;
+import calculator4.exceptions.InvalidOperationException;
+import calculator4.exceptions.ZeroDivisionException;
+import calculator4.operators.OperatorFactory;
+import calculator4.operators.OperatorType;
 
 import java.util.List;
 import java.util.Optional;
@@ -24,7 +24,8 @@ public class App {
             System.out.print("두 번째 숫자를 입력하세요: ");
             String num2 = sc.next();
             if (!gc.isDigit(num2)) {
-                System.out.println("Invalid Input");
+                System.out.println("Invalid Number");
+                continue;
             }
             System.out.print("사칙연산 기호를 입력하세요(+,-,*,/): ");
             String signInput = sc.next();
@@ -35,7 +36,9 @@ public class App {
             }
             Double result;
             try {
-                result = OperatorFactory.operate(operatorType.get()).calculate(Double.parseDouble(num1), Double.parseDouble(num2)).doubleValue();
+                result = OperatorFactory.operate(operatorType.get())
+                                                    .calculate(Double.parseDouble(num1)
+                                                            , Double.parseDouble(num2)).doubleValue();
             } catch (InvalidOperationException | ZeroDivisionException e) {
                 System.out.println("Invalid Result");
                 continue;

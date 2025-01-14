@@ -1,4 +1,4 @@
-package calculator4.Operators;
+package calculator4.operators;
 
 public class MultiplyOperator <T extends Number> implements Operator<T>{
     @Override
